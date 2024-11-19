@@ -5,8 +5,15 @@ function playGame() {
 
     for (let i = 0; i < rounds; i++) {
         // Prompt user for their choice
-        let userChoice = prompt(`Round ${i + 1}: Enter Rock, Paper, or Scissors:`).toLowerCase();
-
+        let userChoice = prompt(`Round ${i + 1}: Enter Rock, Paper, or Scissors:`);
+        // if user cancels prompt
+        if (userChoice===null){
+            alert("Game cancelled.. Exiting.....");
+            return;
+        }
+        //convert the input to lowercase
+        userChoice = userChoice.toLowerCase();
+        
         // Validate user's input
         if (!choices.includes(userChoice)) {
             alert("Invalid choice. Please enter Rock, Paper, or Scissors.");
